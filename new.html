@@ -27,6 +27,10 @@
   .tab-btn{padding:7px 18px;border:none;border-radius:20px;background:transparent;cursor:pointer;font-size:15px;font-family:'DM Sans',sans-serif;color:var(--muted);font-weight:400;transition:all 0.2s}
   .tab-btn.active{background:white;color:var(--sage-dark);font-weight:500;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
 
+  /* ABOUT NAV BUTTON */
+  .about-nav-btn{padding:7px 16px;border:1px solid #e0d8cc;border-radius:20px;background:white;cursor:pointer;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--sage-dark);font-weight:500;transition:all 0.2s}
+  .about-nav-btn:hover{background:var(--warm);border-color:var(--sage)}
+
   /* LOGO MENU */
   .logo-menu{position:absolute;top:60px;left:28px;background:white;border:1px solid #ede8e0;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.1);width:190px;display:none;flex-direction:column;padding:8px;z-index:1000;animation:menuFade 0.2s ease}
   .logo-menu.show{display:flex}
@@ -171,12 +175,12 @@
     <button class="tab-btn" onclick="switchTab('todo',event)">✅ Tasks</button>
     <button class="tab-btn" onclick="switchTab('calendar',event)">📅 Schedule</button>
   </div>
+  <button class="about-nav-btn" onclick="openAbout()">ℹ️ About</button>
 </nav>
 
 <div class="logo-menu" id="logoMenu">
   <div class="menu-item" onclick="showToast('Profile opening...')">👤 User Profile</div>
   <div class="menu-item" onclick="showToast('Settings opening...')">⚙️ Garden Settings</div>
-  <div class="menu-item" onclick="openAbout()">ℹ️ About Bloom</div>
   <hr class="about-divider">
   <div class="menu-item" onclick="window.location.href='bloomlogin.html'" style="color:var(--accent)">🚪 Log Out</div>
 </div>
