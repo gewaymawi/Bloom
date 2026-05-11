@@ -16,18 +16,15 @@
   }
   body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;overflow-x:hidden}
   h1,h2,h3{font-family:'Playfair Display',serif}
-
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  
+
   /* NAV */
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:white;border-bottom:1px solid #e8e2d8;position:sticky;top:0;z-index:100}
-  .nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--sage-dark);letter-spacing:-0.5px}
+  .nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--sage-dark);letter-spacing:-0.5px;cursor:pointer}
   .nav-logo span{color:var(--petal1);font-size:10px}
   .nav-tabs{display:flex;gap:4px;background:var(--warm);border-radius:24px;padding:4px}
   .tab-btn{padding:7px 18px;border:none;border-radius:20px;background:transparent;cursor:pointer;font-size:15px;font-family:'DM Sans',sans-serif;color:var(--muted);font-weight:400;transition:all 0.2s}
   .tab-btn.active{background:white;color:var(--sage-dark);font-weight:500;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
-
-  /* ABOUT NAV BUTTON */
   .about-nav-btn{padding:7px 16px;border:1px solid #e0d8cc;border-radius:20px;background:white;cursor:pointer;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--sage-dark);font-weight:500;transition:all 0.2s}
   .about-nav-btn:hover{background:var(--warm);border-color:var(--sage)}
 
@@ -37,13 +34,14 @@
   @keyframes menuFade{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
   .menu-item{padding:10px 14px;font-size:13px;color:var(--text);border-radius:8px;cursor:pointer;transition:background 0.2s}
   .menu-item:hover{background:var(--warm);color:var(--sage-dark)}
-  
+  .menu-divider{border:0;border-top:1px solid #ede8e0;margin:5px 0}
+
   /* PANELS */
   .panel{display:none;padding:24px 28px;min-height:calc(100vh - 60px);animation:fadeIn 0.3s ease}
   .panel.active{display:block}
   @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-  
-  /* TIMER PANEL */
+
+  /* TIMER */
   .timer-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto}
   .timer-card{background:white;border-radius:20px;padding:28px;border:1px solid #ede8e0}
   .timer-display{text-align:center;padding:20px 0}
@@ -73,17 +71,17 @@
   .streak-dot.done{background:var(--sage);color:white}
   .growing-flower{display:flex;justify-content:center;align-items:flex-end;height:180px;margin:10px 0}
 
-  /* GARDEN PANEL */
+  /* GARDEN */
   .garden-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
   .garden-stats{display:flex;gap:16px}
   .stat-pill{background:white;border:1px solid #ede8e0;border-radius:20px;padding:6px 14px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
   .stat-pill strong{color:var(--text);font-weight:500}
   .garden-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:16px;background:white;border-radius:20px;padding:24px;border:1px solid #ede8e0;min-height:220px}
-  .plot{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:default}
+  .plot{display:flex;flex-direction:column;align-items:center;gap:6px}
   .plot-label{font-size:10px;color:var(--muted);text-align:center}
   .empty-plot{width:50px;height:50px;border:2px dashed #ddd;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#ccc}
 
-  /* TODO PANEL */
+  /* TODO */
   .todo-layout{max-width:680px;margin:0 auto}
   .todo-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
   .add-todo-form{display:flex;gap:10px;margin-bottom:20px}
@@ -106,7 +104,7 @@
   .todo-del:hover{color:var(--accent)}
   .priority-sel{padding:4px 8px;border-radius:10px;border:1px solid #e0d8cc;font-size:12px;background:white;color:var(--muted);font-family:'DM Sans',sans-serif}
 
-  /* CALENDAR PANEL */
+  /* CALENDAR */
   .cal-layout{display:grid;grid-template-columns:1fr 300px;gap:24px;max-width:960px;margin:0 auto}
   .cal-card{background:white;border-radius:20px;padding:24px;border:1px solid #ede8e0}
   .cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
@@ -142,16 +140,56 @@
   .section-sub{font-size:13px;color:var(--muted);margin-top:2px}
 
   /* TOAST */
-  .toast{position:fixed;bottom:24px;right:24px;background:#2d2d2d;color:white;padding:12px 20px;border-radius:14px;font-size:13px;z-index:999;opacity:0;transform:translateY(10px);transition:all 0.3s;pointer-events:none}
+  .toast{position:fixed;bottom:24px;right:24px;background:#2d2d2d;color:white;padding:12px 20px;border-radius:14px;font-size:13px;z-index:9999;opacity:0;transform:translateY(10px);transition:all 0.3s;pointer-events:none}
   .toast.show{opacity:1;transform:translateY(0)}
 
-  /* ABOUT MODAL */
-  .about-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:500;align-items:center;justify-content:center}
-  .about-overlay.show{display:flex}
-  .about-modal{background:var(--cream);border-radius:24px;padding:36px;max-width:480px;width:90%;border:1px solid #ede8e0;position:relative;animation:modalIn 0.25s ease}
+  /* MODAL BASE */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:500;align-items:center;justify-content:center}
+  .modal-overlay.show{display:flex}
+  .modal-box{background:var(--cream);border-radius:24px;padding:32px;max-width:500px;width:92%;border:1px solid #ede8e0;position:relative;animation:modalIn 0.25s ease;max-height:90vh;overflow-y:auto}
   @keyframes modalIn{from{opacity:0;transform:scale(0.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
-  .about-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;cursor:pointer;color:#aaa;line-height:1;transition:color 0.2s}
-  .about-close:hover{color:var(--text)}
+  .modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;cursor:pointer;color:#aaa;line-height:1;transition:color 0.2s}
+  .modal-close:hover{color:var(--text)}
+  .modal-title-row{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .modal-icon{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .modal-section-hd{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.6px;margin:18px 0 10px;border-bottom:1px solid #f0ebe2;padding-bottom:6px}
+  .modal-input{width:100%;padding:11px 14px;border-radius:12px;border:1px solid #e0d8cc;font-family:'DM Sans',sans-serif;font-size:14px;background:white;color:var(--text);outline:none;transition:border-color 0.2s}
+  .modal-input:focus{border-color:var(--sage)}
+  .modal-textarea{width:100%;padding:11px 14px;border-radius:12px;border:1px solid #e0d8cc;font-family:'DM Sans',sans-serif;font-size:14px;background:white;color:var(--text);outline:none;resize:vertical;min-height:72px;transition:border-color 0.2s}
+  .modal-textarea:focus{border-color:var(--sage)}
+  .modal-label{font-size:12px;color:var(--muted);margin-bottom:5px;display:block}
+  .modal-field{margin-bottom:14px}
+  .modal-save-btn{width:100%;padding:13px;background:var(--sage);color:white;border:none;border-radius:14px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;margin-top:6px;transition:background 0.2s}
+  .modal-save-btn:hover{background:var(--sage-dark)}
+  .modal-danger-btn{width:100%;padding:11px;background:white;color:var(--accent);border:1px solid #f5d5cc;border-radius:14px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;margin-top:8px;transition:all 0.2s}
+  .modal-danger-btn:hover{background:#fdf0ec;border-color:var(--accent)}
+  .modal-select{width:100%;padding:11px 14px;border-radius:12px;border:1px solid #e0d8cc;font-family:'DM Sans',sans-serif;font-size:14px;background:white;color:var(--text);outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7a7a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+
+  /* TOGGLE */
+  .toggle-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #f5f0e8}
+  .toggle-row:last-of-type{border-bottom:none}
+  .toggle-label{font-size:13px;color:var(--text);font-weight:500}
+  .toggle-sub{font-size:11px;color:var(--muted);margin-top:2px}
+  .toggle{position:relative;width:40px;height:22px;flex-shrink:0}
+  .toggle input{opacity:0;width:0;height:0}
+  .toggle-slider{position:absolute;inset:0;background:#ddd;border-radius:22px;cursor:pointer;transition:background 0.25s}
+  .toggle-slider:before{content:'';position:absolute;width:16px;height:16px;left:3px;top:3px;background:white;border-radius:50%;transition:transform 0.25s}
+  .toggle input:checked+.toggle-slider{background:var(--sage)}
+  .toggle input:checked+.toggle-slider:before{transform:translateX(18px)}
+
+  /* AVATAR */
+  .avatar-display{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 12px;border:3px solid white;box-shadow:0 2px 12px rgba(0,0,0,0.12)}
+  .avatar-colors{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+  .avatar-color-btn{width:28px;height:28px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:transform 0.15s}
+  .avatar-color-btn.selected{border-color:#2d2d2d;transform:scale(1.2)}
+
+  /* PROFILE STATS */
+  .profile-stats-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:6px}
+  .profile-stat{background:var(--warm);border-radius:12px;padding:12px;text-align:center}
+  .profile-stat-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--sage-dark)}
+  .profile-stat-lbl{font-size:11px;color:var(--muted);margin-top:2px}
+
+  /* ABOUT */
   .about-logo-row{display:flex;align-items:center;gap:14px;margin-bottom:18px}
   .about-icon{width:52px;height:52px;border-radius:50%;background:#fce8ec;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
   .about-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
@@ -160,15 +198,12 @@
   .about-feature-title{font-size:13px;font-weight:500;color:var(--text)}
   .about-footer{border-top:1px solid #ede8e0;padding-top:14px;display:flex;justify-content:space-between;align-items:center}
   .about-badge{font-size:12px;background:#eaf5ed;color:#3a7d50;padding:4px 12px;border-radius:20px;font-weight:500}
-  .about-divider{border:0;border-top:1px solid #ede8e0;margin:10px 0}
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="nav-logo" id="logoBtn" onclick="toggleMenu(event)" style="cursor:pointer">
-    Bloom<span>🌸</span>
-  </div>
+  <div class="nav-logo" id="logoBtn" onclick="toggleMenu(event)">Bloom<span>🌸</span></div>
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="switchTab('timer',event)">🌸 Focus</button>
     <button class="tab-btn" onclick="switchTab('garden',event)">🌻 Garden</button>
@@ -179,9 +214,9 @@
 </nav>
 
 <div class="logo-menu" id="logoMenu">
-  <div class="menu-item" onclick="showToast('Profile opening...')">👤 User Profile</div>
-  <div class="menu-item" onclick="showToast('Settings opening...')">⚙️ Garden Settings</div>
-  <hr class="about-divider">
+  <div class="menu-item" onclick="openProfile()">👤 User Profile</div>
+  <div class="menu-item" onclick="openSettings()">⚙️ Garden Settings</div>
+  <hr class="menu-divider">
   <div class="menu-item" onclick="window.location.href='bloomlogin.html'" style="color:var(--accent)">🚪 Log Out</div>
 </div>
 
@@ -311,9 +346,9 @@
   <div class="cal-layout">
     <div class="cal-card">
       <div class="cal-nav">
-        <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
-        <div class="cal-month" id="calMonth">April 2026</div>
-        <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+        <button class="cal-nav-btn" onclick="changeMonth(-1)">&#8249;</button>
+        <div class="cal-month" id="calMonth">May 2026</div>
+        <button class="cal-nav-btn" onclick="changeMonth(1)">&#8250;</button>
       </div>
       <div class="cal-grid" id="calGrid"></div>
     </div>
@@ -344,11 +379,133 @@
   </div>
 </div>
 
-<!-- ABOUT MODAL -->
-<div class="about-overlay" id="aboutOverlay" onclick="closeAbout(event)">
-  <div class="about-modal" onclick="event.stopPropagation()">
-    <button class="about-close" onclick="closeAbout()">×</button>
+<!-- ===== USER PROFILE MODAL ===== -->
+<div class="modal-overlay" id="profileOverlay" onclick="closeModal('profileOverlay',event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('profileOverlay')">&#215;</button>
 
+    <div class="modal-title-row">
+      <div class="modal-icon" style="background:#fce8ec">👤</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--sage-dark)">User Profile</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Your personal garden identity</div>
+      </div>
+    </div>
+
+    <div id="avatarDisplay" class="avatar-display" style="background:#f4a5b0">🌸</div>
+    <div class="avatar-colors">
+      <button class="avatar-color-btn selected" style="background:#f4a5b0" data-color="#f4a5b0" data-emoji="🌸" onclick="pickAvatar(this)"></button>
+      <button class="avatar-color-btn" style="background:#d4b8e0" data-color="#d4b8e0" data-emoji="🌷" onclick="pickAvatar(this)"></button>
+      <button class="avatar-color-btn" style="background:#b3cde8" data-color="#b3cde8" data-emoji="💙" onclick="pickAvatar(this)"></button>
+      <button class="avatar-color-btn" style="background:#a8d8b0" data-color="#a8d8b0" data-emoji="🌿" onclick="pickAvatar(this)"></button>
+      <button class="avatar-color-btn" style="background:#f9c8a6" data-color="#f9c8a6" data-emoji="🌻" onclick="pickAvatar(this)"></button>
+      <button class="avatar-color-btn" style="background:#7a9e7e" data-color="#7a9e7e" data-emoji="🍀" onclick="pickAvatar(this)"></button>
+    </div>
+
+    <div class="profile-stats-grid">
+      <div class="profile-stat"><div class="profile-stat-val" id="pSessions">0</div><div class="profile-stat-lbl">Sessions</div></div>
+      <div class="profile-stat"><div class="profile-stat-val" id="pFlowers">0</div><div class="profile-stat-lbl">Flowers</div></div>
+      <div class="profile-stat"><div class="profile-stat-val" id="pHours">0h</div><div class="profile-stat-lbl">Study time</div></div>
+    </div>
+
+    <div class="modal-section-hd">Personal Info</div>
+
+    <div class="modal-field">
+      <label class="modal-label">Display Name</label>
+      <input class="modal-input" id="profName" type="text" placeholder="Your name" maxlength="30"/>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Username</label>
+      <input class="modal-input" id="profUsername" type="text" placeholder="@username" maxlength="20"/>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Bio</label>
+      <textarea class="modal-textarea" id="profBio" placeholder="A little about your study goals..." maxlength="120"></textarea>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Study Goal</label>
+      <select class="modal-select" id="profGoal">
+        <option value="academic">📚 Academic excellence</option>
+        <option value="career">💼 Career development</option>
+        <option value="language">🌍 Language learning</option>
+        <option value="creative">🎨 Creative skills</option>
+        <option value="personal">🌱 Personal growth</option>
+        <option value="other">✨ Something else</option>
+      </select>
+    </div>
+
+    <button class="modal-save-btn" onclick="saveProfile()">Save Profile</button>
+  </div>
+</div>
+
+<!-- ===== GARDEN SETTINGS MODAL ===== -->
+<div class="modal-overlay" id="settingsOverlay" onclick="closeModal('settingsOverlay',event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('settingsOverlay')">&#215;</button>
+
+    <div class="modal-title-row">
+      <div class="modal-icon" style="background:#eaf5ed">&#9881;&#65039;</div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--sage-dark)">Garden Settings</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Customize your Bloom experience</div>
+      </div>
+    </div>
+
+    <div class="modal-section-hd">Timer Behaviour</div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">Auto-start breaks</div><div class="toggle-sub">Begin break timer automatically after focus ends</div></div>
+      <label class="toggle"><input type="checkbox" id="setAutoBreak"><span class="toggle-slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">Auto-start focus</div><div class="toggle-sub">Resume focus timer after each break automatically</div></div>
+      <label class="toggle"><input type="checkbox" id="setAutoFocus"><span class="toggle-slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">Sound effects</div><div class="toggle-sub">Play a chime when a session completes</div></div>
+      <label class="toggle"><input type="checkbox" id="setSound" checked><span class="toggle-slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">Browser notifications</div><div class="toggle-sub">Notify when a session or break ends</div></div>
+      <label class="toggle"><input type="checkbox" id="setNotif"><span class="toggle-slider"></span></label>
+    </div>
+
+    <div class="modal-section-hd">Appearance</div>
+    <div class="modal-field">
+      <label class="modal-label">Garden theme</label>
+      <select class="modal-select" id="setTheme">
+        <option value="spring">🌸 Spring Bloom (default)</option>
+        <option value="forest">🌲 Forest Calm</option>
+        <option value="ocean">🌊 Ocean Mist</option>
+        <option value="sunset">🌅 Sunset Warm</option>
+        <option value="lavender">💜 Lavender Fields</option>
+      </select>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Daily streak goal</label>
+      <select class="modal-select" id="setStreakGoal">
+        <option value="4">4 sessions</option>
+        <option value="6">6 sessions</option>
+        <option value="8" selected>8 sessions</option>
+        <option value="10">10 sessions</option>
+        <option value="12">12 sessions</option>
+      </select>
+    </div>
+
+    <div class="modal-section-hd">Data</div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">Save data locally</div><div class="toggle-sub">Store tasks, events &amp; flowers in your browser</div></div>
+      <label class="toggle"><input type="checkbox" id="setLocalSave" checked><span class="toggle-slider"></span></label>
+    </div>
+
+    <button class="modal-save-btn" style="margin-top:18px" onclick="saveSettings()">Save Settings</button>
+    <button class="modal-danger-btn" onclick="confirmClearData()">&#128465; Clear All Garden Data</button>
+  </div>
+</div>
+
+<!-- ===== ABOUT MODAL ===== -->
+<div class="modal-overlay" id="aboutOverlay" onclick="closeModal('aboutOverlay',event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('aboutOverlay')">&#215;</button>
     <div class="about-logo-row">
       <div class="about-icon">🌸</div>
       <div>
@@ -356,35 +513,17 @@
         <div style="font-size:12px;color:var(--muted);margin-top:3px">Version 1.0 · Built for focused learners</div>
       </div>
     </div>
-
-    <p style="font-size:14px;color:#555;line-height:1.75;margin-bottom:20px">
-      Bloom turns your study sessions into a living garden. Every time you complete a focus session, a new flower blooms — a gentle, visual reminder that small, consistent effort grows into something beautiful over time.
-    </p>
-
+    <p style="font-size:14px;color:#555;line-height:1.75;margin-bottom:20px">Bloom turns your study sessions into a living garden. Every time you complete a focus session, a new flower blooms — a gentle reminder that small, consistent effort grows into something beautiful.</p>
     <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:12px">Features</div>
     <div class="about-feature-grid">
-      <div class="about-feature">
-        <div class="about-feature-label">🍅 Focus Timer</div>
-        <div class="about-feature-title">Pomodoro-style sessions with customizable durations</div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-label">🌻 Garden</div>
-        <div class="about-feature-title">Visual progress tracker — one flower per session</div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-label">✅ Tasks</div>
-        <div class="about-feature-title">Priority-based to-do list to stay organized</div>
-      </div>
-      <div class="about-feature">
-        <div class="about-feature-label">📅 Schedule</div>
-        <div class="about-feature-title">Event calendar to plan your study days</div>
-      </div>
+      <div class="about-feature"><div class="about-feature-label">🍅 Focus Timer</div><div class="about-feature-title">Pomodoro-style sessions with customizable durations</div></div>
+      <div class="about-feature"><div class="about-feature-label">🌻 Garden</div><div class="about-feature-title">Visual progress tracker — one flower per session</div></div>
+      <div class="about-feature"><div class="about-feature-label">✅ Tasks</div><div class="about-feature-title">Priority-based to-do list to stay organized</div></div>
+      <div class="about-feature"><div class="about-feature-label">📅 Schedule</div><div class="about-feature-title">Event calendar to plan your study days</div></div>
     </div>
-
     <div style="background:var(--warm);border-radius:14px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#555;line-height:1.65">
       💡 <strong style="color:var(--sage-dark)">Tip:</strong> Complete at least 4 focus sessions a day to grow a full row in your garden. Your data is saved locally in your browser.
     </div>
-
     <div class="about-footer">
       <span style="font-size:12px;color:var(--muted)">Made with 🌱 for students everywhere</span>
       <span class="about-badge">Free to use</span>
@@ -398,54 +537,137 @@
 // ---- STATE ----
 let timerInterval=null, timerRunning=false;
 let focusMins=25, shortMins=5, longMins=15;
-let currentMode='focus';
-let timeLeft=focusMins*60;
-let totalTime=focusMins*60;
-let sessions=0;
+let currentMode='focus', timeLeft=25*60, totalTime=25*60;
+let sessions=0, flowerProgress=0;
 let flowers=JSON.parse(localStorage.getItem('bloom_flowers')||'[]');
 let todos=JSON.parse(localStorage.getItem('bloom_todos')||'[]');
 let events=JSON.parse(localStorage.getItem('bloom_events')||'{}');
-let calYear=2026, calMonth=3;
-let selectedDate=null;
-let selectedColor='#f4a5b0';
+let calYear=2026, calMonth=4, selectedDate=null, selectedColor='#f4a5b0';
 let todoFilter='all';
-let flowerProgress=0;
+
+let profile=JSON.parse(localStorage.getItem('bloom_profile')||'{"name":"","username":"","bio":"","goal":"academic","avatarColor":"#f4a5b0","avatarEmoji":"🌸"}');
+let appSettings=JSON.parse(localStorage.getItem('bloom_settings')||'{"autoBreak":false,"autoFocus":false,"sound":true,"notif":false,"theme":"spring","streakGoal":8,"localSave":true}');
 
 // ---- LOGO MENU ----
-function toggleMenu(event){
-  event.stopPropagation();
-  document.getElementById('logoMenu').classList.toggle('show');
-}
-window.addEventListener('click',function(event){
+function toggleMenu(e){e.stopPropagation();document.getElementById('logoMenu').classList.toggle('show')}
+window.addEventListener('click',function(e){
   const menu=document.getElementById('logoMenu');
-  const logo=document.getElementById('logoBtn');
-  if(menu.classList.contains('show')&&!menu.contains(event.target)&&event.target!==logo){
+  if(menu.classList.contains('show')&&!menu.contains(e.target)&&e.target!==document.getElementById('logoBtn'))
     menu.classList.remove('show');
-  }
 });
 
 // ---- TABS ----
-function switchTab(tabId,event){
+function switchTab(id,e){
   document.getElementById('logoMenu').classList.remove('show');
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('panel-'+tabId).classList.add('active');
-  event.currentTarget.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+  e.currentTarget.classList.add('active');
 }
 
-// ---- ABOUT MODAL ----
-function openAbout(){
-  document.getElementById('logoMenu').classList.remove('show');
-  document.getElementById('aboutOverlay').classList.add('show');
+// ---- MODALS ----
+function closeModal(id,e){
+  if(!e||e.target===document.getElementById(id))
+    document.getElementById(id).classList.remove('show');
 }
-function closeAbout(e){
-  if(!e||e.target===document.getElementById('aboutOverlay')){
-    document.getElementById('aboutOverlay').classList.remove('show');
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.querySelectorAll('.modal-overlay.show').forEach(m=>m.classList.remove('show'));
+});
+
+// ---- USER PROFILE ----
+function openProfile(){
+  document.getElementById('logoMenu').classList.remove('show');
+  document.getElementById('profName').value=profile.name||'';
+  document.getElementById('profUsername').value=profile.username||'';
+  document.getElementById('profBio').value=profile.bio||'';
+  document.getElementById('profGoal').value=profile.goal||'academic';
+  const av=document.getElementById('avatarDisplay');
+  av.style.background=profile.avatarColor||'#f4a5b0';
+  av.textContent=profile.avatarEmoji||'🌸';
+  document.querySelectorAll('.avatar-color-btn').forEach(b=>b.classList.toggle('selected',b.dataset.color===profile.avatarColor));
+  document.getElementById('pSessions').textContent=sessions;
+  document.getElementById('pFlowers').textContent=flowers.length;
+  document.getElementById('pHours').textContent=Math.round(flowers.length*focusMins/60*10)/10+'h';
+  document.getElementById('profileOverlay').classList.add('show');
+}
+function pickAvatar(btn){
+  document.querySelectorAll('.avatar-color-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const av=document.getElementById('avatarDisplay');
+  av.style.background=btn.dataset.color;
+  av.textContent=btn.dataset.emoji;
+}
+function saveProfile(){
+  const sel=document.querySelector('.avatar-color-btn.selected');
+  profile={
+    name:document.getElementById('profName').value.trim(),
+    username:document.getElementById('profUsername').value.trim(),
+    bio:document.getElementById('profBio').value.trim(),
+    goal:document.getElementById('profGoal').value,
+    avatarColor:sel?sel.dataset.color:'#f4a5b0',
+    avatarEmoji:sel?sel.dataset.emoji:'🌸'
+  };
+  localStorage.setItem('bloom_profile',JSON.stringify(profile));
+  closeModal('profileOverlay');
+  showToast('👤 Profile saved!');
+}
+
+// ---- GARDEN SETTINGS ----
+function openSettings(){
+  document.getElementById('logoMenu').classList.remove('show');
+  document.getElementById('setAutoBreak').checked=appSettings.autoBreak;
+  document.getElementById('setAutoFocus').checked=appSettings.autoFocus;
+  document.getElementById('setSound').checked=appSettings.sound;
+  document.getElementById('setNotif').checked=appSettings.notif;
+  document.getElementById('setTheme').value=appSettings.theme;
+  document.getElementById('setStreakGoal').value=String(appSettings.streakGoal);
+  document.getElementById('setLocalSave').checked=appSettings.localSave;
+  document.getElementById('settingsOverlay').classList.add('show');
+}
+function saveSettings(){
+  appSettings={
+    autoBreak:document.getElementById('setAutoBreak').checked,
+    autoFocus:document.getElementById('setAutoFocus').checked,
+    sound:document.getElementById('setSound').checked,
+    notif:document.getElementById('setNotif').checked,
+    theme:document.getElementById('setTheme').value,
+    streakGoal:parseInt(document.getElementById('setStreakGoal').value),
+    localSave:document.getElementById('setLocalSave').checked
+  };
+  localStorage.setItem('bloom_settings',JSON.stringify(appSettings));
+  applyTheme(appSettings.theme);
+  updateSessionCount();
+  if(appSettings.notif&&Notification.permission==='default') Notification.requestPermission();
+  closeModal('settingsOverlay');
+  showToast('⚙️ Settings saved!');
+}
+function confirmClearData(){
+  if(confirm('Delete all flowers, tasks, and events? This cannot be undone.')){
+    localStorage.removeItem('bloom_flowers');
+    localStorage.removeItem('bloom_todos');
+    localStorage.removeItem('bloom_events');
+    flowers=[];todos=[];events={};sessions=0;flowerProgress=0;
+    renderGarden();renderTodos();renderCalendar();updateSessionCount();drawGrowingFlower();
+    closeModal('settingsOverlay');
+    showToast('🗑 Garden data cleared.');
   }
 }
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape') document.getElementById('aboutOverlay').classList.remove('show');
-});
+function applyTheme(theme){
+  const themes={
+    spring:{sage:'#7a9e7e',sl:'#c8ddc9',sd:'#4a6e4e',cream:'#faf7f2',warm:'#f5efe6'},
+    forest:{sage:'#5a8a5e',sl:'#b0ccb2',sd:'#2e5c32',cream:'#f4f7f0',warm:'#eaf0e8'},
+    ocean: {sage:'#5b8fa8',sl:'#b8d4e4',sd:'#2e5f78',cream:'#f0f7fa',warm:'#e4f0f6'},
+    sunset:{sage:'#c5785f',sl:'#f0c0b0',sd:'#8c4030',cream:'#fdf6f2',warm:'#faeee8'},
+    lavender:{sage:'#8b6db0',sl:'#d0b8e8',sd:'#5c3d80',cream:'#f8f4fc',warm:'#f0e8f8'},
+  };
+  const t=themes[theme]||themes.spring;
+  const r=document.documentElement.style;
+  r.setProperty('--sage',t.sage);r.setProperty('--sage-light',t.sl);
+  r.setProperty('--sage-dark',t.sd);r.setProperty('--cream',t.cream);r.setProperty('--warm',t.warm);
+}
+
+// ---- ABOUT ----
+function openAbout(){document.getElementById('aboutOverlay').classList.add('show')}
 
 // ---- FLOWERS ----
 const flowerTypes=[
@@ -463,31 +685,25 @@ function drawFlower(svgEl,progress,type,size=1,cx=60,cy=140){
   const petalScale=Math.max(0,(progress-0.5)*2);
   let html='';
   if(stemH>0){
-    const sy=cy,sx=cx;
-    html+=`<line x1="${sx}" y1="${sy}" x2="${sx}" y2="${sy-stemH}" stroke="#7a9e7e" stroke-width="${2.5*size}" stroke-linecap="round"/>`;
+    html+=`<line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy-stemH}" stroke="#7a9e7e" stroke-width="${2.5*size}" stroke-linecap="round"/>`;
     if(leafOpacity>0&&stemH>30){
-      const lx=sx,ly=sy-stemH*0.5;
-      html+=`<path d="M${lx},${ly} Q${lx+14*size},${ly-8*size} ${lx+8*size},${ly-18*size} Q${lx+2*size},${ly-8*size} ${lx},${ly}" fill="#7a9e7e" opacity="${leafOpacity}"/>`;
-      html+=`<path d="M${lx},${ly} Q${lx-14*size},${ly-8*size} ${lx-8*size},${ly-18*size} Q${lx-2*size},${ly-8*size} ${lx},${ly}" fill="#a8d8b0" opacity="${leafOpacity}"/>`;
+      const ly=cy-stemH*0.5;
+      html+=`<path d="M${cx},${ly} Q${cx+14*size},${ly-8*size} ${cx+8*size},${ly-18*size} Q${cx+2*size},${ly-8*size} ${cx},${ly}" fill="#7a9e7e" opacity="${leafOpacity}"/>`;
+      html+=`<path d="M${cx},${ly} Q${cx-14*size},${ly-8*size} ${cx-8*size},${ly-18*size} Q${cx-2*size},${ly-8*size} ${cx},${ly}" fill="#a8d8b0" opacity="${leafOpacity}"/>`;
     }
   }
   if(petalScale>0){
-    const py=cy-stemH;
-    const pr=18*size*petalScale;
+    const py=cy-stemH,pr=18*size*petalScale;
     for(let i=0;i<t.petals;i++){
-      const angle=(i/t.petals)*Math.PI*2-Math.PI/2;
-      const px2=cx+Math.cos(angle)*pr;
-      const py2=py+Math.sin(angle)*pr;
-      html+=`<ellipse cx="${px2}" cy="${py2}" rx="${9*size*petalScale}" ry="${5*size*petalScale}" fill="${t.pColor}" transform="rotate(${angle*180/Math.PI+90},${px2},${py2})" opacity="${petalScale}"/>`;
+      const a=(i/t.petals)*Math.PI*2-Math.PI/2;
+      const px2=cx+Math.cos(a)*pr,py2=py+Math.sin(a)*pr;
+      html+=`<ellipse cx="${px2}" cy="${py2}" rx="${9*size*petalScale}" ry="${5*size*petalScale}" fill="${t.pColor}" transform="rotate(${a*180/Math.PI+90},${px2},${py2})" opacity="${petalScale}"/>`;
     }
     html+=`<circle cx="${cx}" cy="${py}" r="${7*size*petalScale}" fill="${t.cColor}" opacity="${petalScale}"/>`;
   }
   svgEl.innerHTML=html;
 }
-function drawGrowingFlower(){
-  const svg=document.getElementById('flowerSvg');
-  drawFlower(svg,flowerProgress,sessions%flowerTypes.length,1,60,155);
-}
+function drawGrowingFlower(){drawFlower(document.getElementById('flowerSvg'),flowerProgress,sessions%flowerTypes.length,1,60,155)}
 
 // ---- TIMER ----
 function pad(n){return String(n).padStart(2,'0')}
@@ -495,72 +711,65 @@ function updateDisplay(){
   const m=Math.floor(timeLeft/60),s=timeLeft%60;
   document.getElementById('timerDisplay').textContent=`${pad(m)}:${pad(s)}`;
   const pct=1-(timeLeft/totalTime);
-  const circ=565;
-  const offset=circ-(pct*circ);
-  document.getElementById('timerCircle').style.strokeDashoffset=offset;
-  const hue=currentMode==='focus'?'#7a9e7e':(currentMode==='short'?'#b3cde8':'#d4b8e0');
-  document.getElementById('timerCircle').style.stroke=hue;
-  flowerProgress=currentMode==='focus'?pct:flowerProgress;
+  document.getElementById('timerCircle').style.strokeDashoffset=565-(pct*565);
+  document.getElementById('timerCircle').style.stroke=currentMode==='focus'?'#7a9e7e':(currentMode==='short'?'#b3cde8':'#d4b8e0');
+  if(currentMode==='focus') flowerProgress=pct;
   drawGrowingFlower();
 }
 function toggleTimer(){
-  if(timerRunning){
-    clearInterval(timerInterval);timerRunning=false;
-    document.getElementById('startBtn').textContent='▶';
-  }else{
-    timerRunning=true;
-    document.getElementById('startBtn').textContent='⏸';
-    timerInterval=setInterval(()=>{
-      timeLeft--;
-      if(timeLeft<=0){completeSession();return;}
-      updateDisplay();
-    },1000);
+  if(timerRunning){clearInterval(timerInterval);timerRunning=false;document.getElementById('startBtn').textContent='▶';}
+  else{
+    timerRunning=true;document.getElementById('startBtn').textContent='⏸';
+    timerInterval=setInterval(()=>{timeLeft--;if(timeLeft<=0){completeSession();return;}updateDisplay();},1000);
   }
 }
+function playChime(){
+  if(!appSettings.sound)return;
+  try{
+    const ctx=new(window.AudioContext||window.webkitAudioContext)();
+    [523,659,784].forEach((freq,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.connect(g);g.connect(ctx.destination);
+      o.frequency.value=freq;o.type='sine';
+      g.gain.setValueAtTime(0.3,ctx.currentTime+i*0.2);
+      g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.2+0.4);
+      o.start(ctx.currentTime+i*0.2);o.stop(ctx.currentTime+i*0.2+0.4);
+    });
+  }catch(e){}
+}
+function sendNotif(msg){if(appSettings.notif&&Notification.permission==='granted')new Notification('🌸 Bloom',{body:msg})}
 function completeSession(){
-  clearInterval(timerInterval);timerRunning=false;
-  document.getElementById('startBtn').textContent='▶';
+  clearInterval(timerInterval);timerRunning=false;document.getElementById('startBtn').textContent='▶';
   if(currentMode==='focus'){
-    sessions++;
-    flowerProgress=1;
-    drawGrowingFlower();
-    const fl={type:(sessions-1)%flowerTypes.length,date:new Date().toISOString(),label:`Session ${sessions}`};
-    flowers.push(fl);
+    sessions++;flowerProgress=1;drawGrowingFlower();
+    flowers.push({type:(sessions-1)%flowerTypes.length,date:new Date().toISOString(),label:`Session ${sessions}`});
     localStorage.setItem('bloom_flowers',JSON.stringify(flowers));
-    updateSessionCount();
-    renderGarden();
+    updateSessionCount();renderGarden();
+    playChime();sendNotif('Session complete! A flower bloomed.');
     showToast('🌸 Session complete! A flower bloomed in your garden!');
+  } else {
+    playChime();sendNotif('Break over — time to focus!');
   }
+  const next=currentMode==='focus'?'short':'focus';
   setTimeout(()=>{
-    flowerProgress=0;
-    setMode(currentMode==='focus'?'short':'focus',null,true);
+    flowerProgress=0;setMode(next,null,true);
+    if((next==='short'&&appSettings.autoBreak)||(next==='focus'&&appSettings.autoFocus))
+      setTimeout(()=>toggleTimer(),800);
   },1200);
 }
 function resetTimer(){
-  clearInterval(timerInterval);timerRunning=false;
-  document.getElementById('startBtn').textContent='▶';
-  const modeMap={focus:focusMins,short:shortMins,long:longMins};
-  totalTime=modeMap[currentMode]*60;
-  timeLeft=totalTime;
-  if(currentMode==='focus')flowerProgress=0;
-  updateDisplay();
+  clearInterval(timerInterval);timerRunning=false;document.getElementById('startBtn').textContent='▶';
+  totalTime={focus:focusMins,short:shortMins,long:longMins}[currentMode]*60;
+  timeLeft=totalTime;if(currentMode==='focus')flowerProgress=0;updateDisplay();
 }
 function skipSession(){completeSession()}
 function setMode(mode,btn,auto=false){
   currentMode=mode;
-  if(!auto){
-    document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
-    if(btn)btn.classList.add('active');
-  }
-  clearInterval(timerInterval);timerRunning=false;
-  document.getElementById('startBtn').textContent='▶';
-  const modeMap={focus:focusMins,short:shortMins,long:longMins};
-  totalTime=modeMap[mode]*60;
-  timeLeft=totalTime;
-  const labels={focus:'FOCUS TIME',short:'SHORT BREAK',long:'LONG BREAK'};
-  document.getElementById('timerLabel').textContent=labels[mode];
-  flowerProgress=0;
-  updateDisplay();
+  if(!auto){document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');}
+  clearInterval(timerInterval);timerRunning=false;document.getElementById('startBtn').textContent='▶';
+  totalTime={focus:focusMins,short:shortMins,long:longMins}[mode]*60;timeLeft=totalTime;
+  document.getElementById('timerLabel').textContent={focus:'FOCUS TIME',short:'SHORT BREAK',long:'LONG BREAK'}[mode];
+  flowerProgress=0;updateDisplay();
 }
 function adjustTime(type,delta){
   if(type==='focus'){focusMins=Math.max(5,Math.min(90,focusMins+delta));document.getElementById('focusMins').textContent=focusMins;}
@@ -570,46 +779,33 @@ function adjustTime(type,delta){
 }
 function updateSessionCount(){
   document.getElementById('sessionCount').textContent=`${sessions} 🌸`;
-  const row=document.getElementById('streakRow');
-  const target=8;row.innerHTML='';
-  for(let i=0;i<target;i++){
-    const d=document.createElement('div');
-    d.className='streak-dot'+(i<sessions?' done':'');
-    d.textContent=i<sessions?'✓':'';
-    row.appendChild(d);
+  const goal=appSettings.streakGoal||8;
+  const row=document.getElementById('streakRow');row.innerHTML='';
+  for(let i=0;i<goal;i++){
+    const d=document.createElement('div');d.className='streak-dot'+(i<sessions?' done':'');d.textContent=i<sessions?'✓':'';row.appendChild(d);
   }
 }
 
 // ---- GARDEN ----
 function renderGarden(){
-  const grid=document.getElementById('gardenGrid');
-  grid.innerHTML='';
+  const grid=document.getElementById('gardenGrid');grid.innerHTML='';
   const slots=Math.max(flowers.length+4,12);
   document.getElementById('gardenCount').textContent=flowers.length;
-  const hrs=Math.round(flowers.length*focusMins/60*10)/10;
-  document.getElementById('gardenHours').textContent=hrs+'h';
+  document.getElementById('gardenHours').textContent=Math.round(flowers.length*focusMins/60*10)/10+'h';
   document.getElementById('gardenDays').textContent=Math.ceil(flowers.length/4)||0;
   for(let i=0;i<slots;i++){
-    const plot=document.createElement('div');
-    plot.className='plot';
+    const plot=document.createElement('div');plot.className='plot';
     if(i<flowers.length){
       const f=flowers[i];
       const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
       svg.setAttribute('width','60');svg.setAttribute('height','70');svg.setAttribute('viewBox','0 0 60 70');
-      plot.appendChild(svg);
-      const d=new Date(f.date);
-      const label=document.createElement('div');
-      label.className='plot-label';
-      label.textContent=`${d.getMonth()+1}/${d.getDate()}`;
-      plot.appendChild(label);
-      grid.appendChild(plot);
+      const label=document.createElement('div');label.className='plot-label';
+      const d=new Date(f.date);label.textContent=`${d.getMonth()+1}/${d.getDate()}`;
+      plot.appendChild(svg);plot.appendChild(label);grid.appendChild(plot);
       drawFlower(svg,1,f.type,0.55,30,68);
     }else{
-      const empty=document.createElement('div');
-      empty.className='empty-plot';
-      empty.textContent=i===flowers.length?'🌱':'';
-      plot.appendChild(empty);
-      grid.appendChild(plot);
+      const empty=document.createElement('div');empty.className='empty-plot';empty.textContent=i===flowers.length?'🌱':'';
+      plot.appendChild(empty);grid.appendChild(plot);
     }
   }
 }
@@ -623,46 +819,32 @@ function priorityTag(p){
 }
 function renderTodos(){
   const list=document.getElementById('todoList');
-  const pending=todos.filter(t=>!t.done).length;
-  const done=todos.filter(t=>t.done).length;
+  const pending=todos.filter(t=>!t.done).length,done=todos.filter(t=>t.done).length;
   document.getElementById('todoMeta').textContent=`${pending} pending · ${done} done`;
   let filtered=todos;
   if(todoFilter==='pending')filtered=todos.filter(t=>!t.done);
   if(todoFilter==='done')filtered=todos.filter(t=>t.done);
   if(todoFilter==='high')filtered=todos.filter(t=>t.priority==='high');
   list.innerHTML='';
-  if(filtered.length===0){
-    list.innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Nothing here yet 🌸</div>';
-    return;
-  }
-  filtered.forEach((t)=>{
+  if(!filtered.length){list.innerHTML='<div style="text-align:center;padding:32px;color:var(--muted);font-size:14px">Nothing here yet 🌸</div>';return;}
+  filtered.forEach(t=>{
     const idx=todos.indexOf(t);
-    const el=document.createElement('div');
-    el.className='todo-item'+(t.done?' done':'');
-    el.innerHTML=`
-      <div class="todo-check ${t.done?'checked':''}" onclick="toggleTodo(${idx})">${t.done?'✓':''}</div>
-      <span class="todo-text ${t.done?'done':''}">${t.text}</span>
-      ${priorityTag(t.priority)}
-      <button class="todo-del" onclick="deleteTodo(${idx})">×</button>`;
+    const el=document.createElement('div');el.className='todo-item'+(t.done?' done':'');
+    el.innerHTML=`<div class="todo-check ${t.done?'checked':''}" onclick="toggleTodo(${idx})">${t.done?'✓':''}</div>
+      <span class="todo-text ${t.done?'done':''}">${t.text}</span>${priorityTag(t.priority)}
+      <button class="todo-del" onclick="deleteTodo(${idx})">&#215;</button>`;
     list.appendChild(el);
   });
 }
 function addTodo(){
-  const input=document.getElementById('todoInput');
-  const text=input.value.trim();
-  if(!text)return;
-  const priority=document.getElementById('todoPriority').value;
-  todos.unshift({text,priority,done:false,created:Date.now()});
-  input.value='';
-  saveTodos();renderTodos();
+  const inp=document.getElementById('todoInput'),text=inp.value.trim();if(!text)return;
+  todos.unshift({text,priority:document.getElementById('todoPriority').value,done:false,created:Date.now()});
+  inp.value='';saveTodos();renderTodos();
 }
 function toggleTodo(i){todos[i].done=!todos[i].done;saveTodos();renderTodos()}
 function deleteTodo(i){todos.splice(i,1);saveTodos();renderTodos()}
 function filterTodos(f,btn){
-  todoFilter=f;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-  renderTodos();
+  todoFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderTodos();
 }
 
 // ---- CALENDAR ----
@@ -672,135 +854,91 @@ function dateKey(y,m,d){return `${y}-${String(m+1).padStart(2,'0')}-${String(d).
 function saveEvents(){localStorage.setItem('bloom_events',JSON.stringify(events))}
 function renderCalendar(){
   document.getElementById('calMonth').textContent=`${MONTHS[calMonth]} ${calYear}`;
-  const grid=document.getElementById('calGrid');
-  grid.innerHTML='';
+  const grid=document.getElementById('calGrid');grid.innerHTML='';
   DAYS.forEach(d=>{const el=document.createElement('div');el.className='cal-day-name';el.textContent=d;grid.appendChild(el);});
   const first=new Date(calYear,calMonth,1).getDay();
   const total=new Date(calYear,calMonth+1,0).getDate();
   const today=new Date();
   for(let i=0;i<first;i++){
-    const prevTotal=new Date(calYear,calMonth,0).getDate();
-    const day=prevTotal-first+i+1;
-    const el=document.createElement('div');
-    el.className='cal-day other-month';
-    el.innerHTML=`<span class="day-num">${day}</span>`;
-    grid.appendChild(el);
+    const day=new Date(calYear,calMonth,0).getDate()-first+i+1;
+    const el=document.createElement('div');el.className='cal-day other-month';
+    el.innerHTML=`<span class="day-num">${day}</span>`;grid.appendChild(el);
   }
   for(let d=1;d<=total;d++){
     const key=dateKey(calYear,calMonth,d);
     const isToday=today.getFullYear()===calYear&&today.getMonth()===calMonth&&today.getDate()===d;
-    const isSel=selectedDate===key;
-    const hasEvents=events[key]&&events[key].length>0;
     const el=document.createElement('div');
-    el.className='cal-day'+(isToday?' today':'')+(isSel?' selected':'');
-    el.innerHTML=`<span class="day-num">${d}</span>${hasEvents?'<div class="day-dot"></div>':''}`;
-    el.onclick=()=>selectDate(calYear,calMonth,d);
-    grid.appendChild(el);
+    el.className='cal-day'+(isToday?' today':'')+(selectedDate===key?' selected':'');
+    el.innerHTML=`<span class="day-num">${d}</span>${events[key]?.length?'<div class="day-dot"></div>':''}`;
+    el.onclick=()=>selectDate(calYear,calMonth,d);grid.appendChild(el);
   }
-  const remaining=(7-(first+total)%7)%7;
-  for(let d=1;d<=remaining;d++){
-    const el=document.createElement('div');
-    el.className='cal-day other-month';
-    el.innerHTML=`<span class="day-num">${d}</span>`;
-    grid.appendChild(el);
+  const rem=(7-(first+total)%7)%7;
+  for(let d=1;d<=rem;d++){
+    const el=document.createElement('div');el.className='cal-day other-month';
+    el.innerHTML=`<span class="day-num">${d}</span>`;grid.appendChild(el);
   }
   renderUpcoming();
 }
 function changeMonth(delta){
-  calMonth+=delta;
-  if(calMonth<0){calMonth=11;calYear--;}
-  if(calMonth>11){calMonth=0;calYear++;}
-  renderCalendar();
+  calMonth+=delta;if(calMonth<0){calMonth=11;calYear--;}if(calMonth>11){calMonth=0;calYear++;}renderCalendar();
 }
 function selectDate(y,m,d){
-  selectedDate=dateKey(y,m,d);
-  renderCalendar();
-  const dt=new Date(y,m,d);
-  document.getElementById('selectedDateTitle').textContent=dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-  renderEvents();
-  document.getElementById('addEventForm').style.display='none';
-  document.getElementById('newEventBtn').style.display='block';
+  selectedDate=dateKey(y,m,d);renderCalendar();
+  document.getElementById('selectedDateTitle').textContent=new Date(y,m,d).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  renderEvents();document.getElementById('addEventForm').style.display='none';document.getElementById('newEventBtn').style.display='block';
 }
 function renderEvents(){
-  const list=document.getElementById('eventList');
-  list.innerHTML='';
-  if(!selectedDate)return;
+  const list=document.getElementById('eventList');list.innerHTML='';if(!selectedDate)return;
   const evs=(events[selectedDate]||[]).sort((a,b)=>a.time.localeCompare(b.time));
-  if(evs.length===0){list.innerHTML='<div style="font-size:13px;color:var(--muted);padding:8px 0">No events yet</div>';return;}
+  if(!evs.length){list.innerHTML='<div style="font-size:13px;color:var(--muted);padding:8px 0">No events yet</div>';return;}
   evs.forEach((ev,i)=>{
-    const el=document.createElement('div');
-    el.className='event-item';
+    const el=document.createElement('div');el.className='event-item';
     el.innerHTML=`<div class="event-dot" style="background:${ev.color}"></div>
       <div><div class="event-title">${ev.title}</div><div class="event-time">${ev.time}</div></div>
-      <button class="event-del" onclick="deleteEvent(${i})">×</button>`;
+      <button class="event-del" onclick="deleteEvent(${i})">&#215;</button>`;
     list.appendChild(el);
   });
 }
-function deleteEvent(i){
-  events[selectedDate].splice(i,1);
-  saveEvents();renderEvents();renderCalendar();
-}
+function deleteEvent(i){events[selectedDate].splice(i,1);saveEvents();renderEvents();renderCalendar()}
 function toggleEventForm(){
-  const form=document.getElementById('addEventForm');
-  const btn=document.getElementById('newEventBtn');
+  const form=document.getElementById('addEventForm'),btn=document.getElementById('newEventBtn');
   if(form.style.display==='none'){form.style.display='flex';btn.style.display='none';}
   else{form.style.display='none';btn.style.display='block';}
 }
 function addEvent(){
   if(!selectedDate)return;
-  const title=document.getElementById('eventTitle').value.trim();
-  const time=document.getElementById('eventTime').value;
+  const title=document.getElementById('eventTitle').value.trim(),time=document.getElementById('eventTime').value;
   if(!title)return;
   if(!events[selectedDate])events[selectedDate]=[];
   events[selectedDate].push({title,time,color:selectedColor});
   document.getElementById('eventTitle').value='';
-  saveEvents();renderEvents();renderCalendar();
-  toggleEventForm();
-  showToast('📅 Event saved!');
+  saveEvents();renderEvents();renderCalendar();toggleEventForm();showToast('📅 Event saved!');
 }
-function selectColor(btn){
-  document.querySelectorAll('.color-dot-btn').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  selectedColor=btn.dataset.color;
-}
+function selectColor(btn){document.querySelectorAll('.color-dot-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');selectedColor=btn.dataset.color}
 function renderUpcoming(){
-  const list=document.getElementById('upcomingList');
-  list.innerHTML='';
-  const today=new Date();
-  const upcoming=[];
-  Object.keys(events).forEach(key=>{
-    const d=new Date(key);
-    if(d>=today){
-      (events[key]||[]).forEach(ev=>{upcoming.push({date:key,dateObj:d,...ev});});
-    }
-  });
-  upcoming.sort((a,b)=>a.dateObj-b.dateObj);
-  upcoming.slice(0,5).forEach(ev=>{
-    const el=document.createElement('div');
-    el.className='event-item';
+  const list=document.getElementById('upcomingList');list.innerHTML='';
+  const today=new Date(),upcoming=[];
+  Object.keys(events).forEach(key=>{const d=new Date(key);if(d>=today)(events[key]||[]).forEach(ev=>upcoming.push({date:key,dateObj:d,...ev}));});
+  upcoming.sort((a,b)=>a.dateObj-b.dateObj).slice(0,5).forEach(ev=>{
+    const el=document.createElement('div');el.className='event-item';
     el.innerHTML=`<div class="event-dot" style="background:${ev.color}"></div>
       <div><div class="event-title">${ev.title}</div><div class="event-time">${ev.date} · ${ev.time}</div></div>`;
     list.appendChild(el);
   });
-  if(upcoming.length===0)list.innerHTML='<div style="font-size:13px;color:var(--muted)">No upcoming events</div>';
+  if(!upcoming.length)list.innerHTML='<div style="font-size:13px;color:var(--muted)">No upcoming events</div>';
 }
 
 // ---- TOAST ----
 function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3000);
 }
 
 // ---- INIT ----
-updateDisplay();
-updateSessionCount();
-renderGarden();
-renderTodos();
-const now=new Date();
-calYear=now.getFullYear();calMonth=now.getMonth();
-renderCalendar();
-selectDate(calYear,calMonth,now.getDate());
+applyTheme(appSettings.theme);
+updateDisplay();updateSessionCount();renderGarden();renderTodos();
+const now=new Date();calYear=now.getFullYear();calMonth=now.getMonth();
+renderCalendar();selectDate(calYear,calMonth,now.getDate());
 </script>
 </body>
 </html>
